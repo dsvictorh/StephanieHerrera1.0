@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Stephanie Herrera Art</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+                <meta name="designer" content="Stephanie Herrera, stephanieh511@gmail.com" />
+                <meta name="author" content="Victor Herrera, dsvictorh@gmail.com" />
+                <meta name="web_author" content="Victor Herrera, dsvictorh@gmail.com" />
+		<meta name="robots" content="index, follow" />
+		<meta name="google" content="notranslate" />   
+                <meta name="keywords" content="" />
+		<meta name="description" content="The Art of Stephanie Herrera: Illustration, Ink, Multimedia" />
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/knockout.js"></script>
+		<script src="js/traffic-cop.js"></script>
+		<script src="js/infuser.js"></script>
+		<script src="js/template-engine.js"></script>
+		
+		<script src="js/models/menu-item.js"></script>
+		<script src="js/models/gallery.js"></script>
+		
+		<script src="js/view-models/menu.js"></script>
+		
+		<link rel="shortcut icon" href="img/layout/naneel.ico" />
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/custom.css" />
+		
+	</head>
+	
+	<body>
+		<div id="wrap">
+			<h1><sup>The Art of</sup> Stephanie Herrera</h1>
+			<article id="content">
+				<nav data-bind="template: { name: 'templates/menu', data: menu }"></nav>
+				<section id="details" data-bind="template: { 'name': 'templates/' + selectedItem().action(), 'data': gallery }"></section>
+			</article>
+		</div>	
+
+		<script src="js/utils.js"></script>
+		<script type="text/javascript">
+			var menu =  new MenuViewModel();
+			ko.applyBindings(menu);
+		</script>
+	</body>
+</html>

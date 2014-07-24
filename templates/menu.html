@@ -1,0 +1,32 @@
+<ul data-bind="foreach: items">
+        <!-- ko if: !external() -->
+        <!-- ko if: action() == 'subnav' -->
+        <li class="subnav shadow">
+                <span data-bind="text: text"></span>
+                <ul data-bind="foreach: sub">
+                	<li data-bind="click: $root.setSelectedItem, text: text, attr:{ class: ($data == $root.selectedItem() ? 'active' : '')}"></li> 
+                </ul>
+        </li>
+        <!-- /ko -->
+	<!-- ko if: action() != 'subnav' -->
+	<li data-bind="click: $parent.setSelectedItem, text: text, attr:{ class: 'shadow' + ($data == $parent.selectedItem() ? ' active' : '')}"></li> 
+        <!-- /ko -->
+        <!-- /ko -->
+        <!-- ko if: external() != '' -->
+        <!-- ko if: action() == 'subnav' -->
+        <li class="subnav shadow">
+                <span data-bind="text: text"></span>
+                <ul data-bind="foreach: sub">
+                	<li>
+		                <a data-bind="text: text, attr{href: ('//' + external() + '/' +  action())}" target="_blank"></a>
+		        </li> 
+                </ul>
+        </li>
+        <!-- /ko -->
+        <!-- ko if: action() != 'subnav' -->
+        <li class="shadow">
+                <a data-bind="text: text, attr{href: ('//' + external() + '/' +  action())}" target="_blank"></a>
+        </li> 
+        <!-- /ko -->
+        <!-- /ko -->
+</ul>

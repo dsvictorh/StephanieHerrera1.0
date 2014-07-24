@@ -1,0 +1,8 @@
+<section id="selected-image">
+	<img data-bind="changeImage: selectedImage(), folder: folder(), speed: fadeSpeed()" alt="" />
+</section>
+<section id="thumbnails" data-bind="foreach: images">
+		<figure data-bind="click: $parent.setSelectedImage, attr: { style: 'background-image: url(' + 'img/gallery/' + $parent.folder() + '/thumb/' + $data + '.jpg);', class: (($data == $parent.selectedImage()) ? 'active' : '')}">
+			<span data-bind="text: $data"></span>
+		</figure> 
+</section>
